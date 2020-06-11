@@ -1,0 +1,27 @@
+/* Essential FileDrop element configuration: */
+.fd-zone {
+	position: relative;
+	overflow: hidden;
+	width: 240px;
+	text-align: center;
+}
+
+/* Hides <input type="file" /> while simulating "Browse" button: */
+.fd-file {
+	opacity: 0;
+	font-size: 118px;
+	position: absolute;
+	right: 0;
+	top: 0;
+	z-index: 1;
+	padding: 0;
+	margin: 0;
+	cursor: pointer;
+	filter: alpha(opacity=0);
+	font-family: sans-serif;
+}
+
+/* Provides visible feedback when use drags a file over the drop zone: */
+.fd-zone.over {
+	border-color: maroon;
+}

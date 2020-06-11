@@ -1,0 +1,792 @@
+======================================================================================================================
+CHANGE LOG
+======================================================================================================================
+
+Version 10.27:
+
+    * Added fix for right-click context menu (didn't work anymore in new Chrome version).
+    * Fixed context menu position.
+
+Version 10.26:
+
+    * Fixed column width in detailed view.
+
+Version 10.25
+
+    * Optimized ID3 tag fetching.
+    * Fixed directory tree reloading.
+
+Version 10.24
+
+    * Added possibility to toggle media player mode between HTML5 and Flash.
+
+Version 10.23
+
+    * Replaced OOS FlvPlayer with FLV player from www.webestools.com.
+    * Minor optimizations.
+
+Version 10.22
+
+    * For jQuery users: Replaced JavaScript function $ with $$.
+    * Optimized media player.
+    * Added config variable forceFlash for media player.
+
+Version 10.21
+
+    * Play MP4 videos with HTML5 video element if possible.
+    * Do not reload after resize.
+
+Version 10.20
+
+    * Added config variable fmCaption.
+    * Added number of files in title bar.
+
+Version 10.19
+
+    * Added fix for avoiding PHP strict notices on some systems.
+
+Version 10.18
+
+    * FileManager will try to create its tmp directory by itself now.
+    * Renamed config variable startDir to rootDir.
+    * Added config variable defaultDir.
+    * Highlight currently selected folder in directory tree.
+
+Version 10.17
+
+    * Bugfix for video player.
+    * Added warning message if tmp directory is not writable.
+
+Version 10.16
+
+    * Added fix for browser context menu in Chrome.
+
+Version 10.15
+
+    * Fixed icons for files with uppercase extension.
+
+Version 10.14
+
+    * Perl uploader: Fixed upload progress window.
+    * Directory tree: Don't show total number of files if not all file types are visible.
+    * Minor bugfix.
+
+Version 10.13
+
+    * Fixed missing title bar icons in IE.
+
+Version 10.12
+
+    * Fixed directory tree: Handle allowed and hidden directories properly.
+
+Version 10.11
+
+    * Added some error messages if certain AJAX requests fail.
+
+Version 10.10
+
+    * Added fix for AUTH_USER in session save path.
+    * Use TXT icon as default icon for ASCII files.
+    * Updated SoundManager.
+    * Media player: View ID3 tags via SoundManager.
+
+Version 10.9
+
+    * Fix for Java uploader: Create folders correctly when uploading multiple directories.
+
+Version 10.8
+
+    * Fix for Java uploader: Only replace spaces with underscores in directory names if $replSpacesUpload is set.
+    * Added possibility to modify e-mail subject line for upload and download info.
+    * Added possibility to set a custom JavaScript function that will be called when a file is clicked.
+
+Version 10.7
+
+    * Always replace spaces with underscores in file and directory names if $replSpacesUpload is set.
+    * Always convert file and directory names to lowercase if $lowerCaseUpload is set.
+
+Version 10.6
+
+    * Keep sub folder structure when using the Java upload engine.
+    * In sub folders, all entries can be selected at once now.
+    * Bugfix: Don't view context menu when clicking on a checkbox.
+    * Bugfix: View correct context menu after returning to a parent directory.
+
+Version 10.5
+
+    * Fixed mail on upload feature.
+
+Version 10.4
+
+    * Bugfix: Check if $id is not empty in FM_Event::_refresh method.
+    * Bugfix: Only reload directory tree if needed.
+
+Version 10.3
+
+    * Minor bugfix: Removed $this in static method FileManager::error.
+    * Added workaround for session garbage collection on Debian systems.
+    * Bugfix: Don't view context menu when left-clicking on "..".
+
+Version 10.2
+
+    * Added icons for global actions to title bar.
+    * View context menu when clicking on FileManager container (if right-click is disabled).
+    * Fixed "empty" file selector fields in Chrome browser.
+
+Version 10.1
+
+    * Bugfix: View directory tree when moving/copying files.
+    * Optimized directory tree update.
+    * Optimized smart refresh.
+
+Version 10.0
+
+    * Code refactoring for PHP 5.
+    * Added JavaScript uploader (FileDrop).
+    * Added audio player with ID3 tag support.
+    * Added HTML5 video support with Flash fallback.
+    * Added recursive directory deletion.
+    * Added support for directory restoring.
+    * Added smart refresh.
+    * New icons.
+    * Lots of improvements under the hood.
+
+Version 9.12
+
+    * Bugfix: Update list view icon in title bar when switching list view.
+
+Version 9.11
+
+    * Bugfix: Resize FileManager properly when directory tree has fixed width.
+
+Version 9.10
+
+    * Resize FileManager, too if browser window is resized.
+    * Several bugfixes.
+
+Version 9.9
+
+    * Added possibility to set width and height by percentage.
+    * Added possibility to hide the title bar. Note that some functions won't be available then.
+
+Version 9.8
+
+    * Text editor opens in new "window" now (like document viewer).
+
+Version 9.7
+
+    * Added possibility to disable file cache.
+    * Bugfix: Files were not removed properly from cache in FTP mode.
+
+Version 9.6
+
+    * Added support for bulk moving of files and directories.
+
+Version 9.5
+
+    * Added support for touchscreen devices.
+    * Updated SoundManager.
+
+Version 9.4
+
+    * Added fixed table header in detailed view. In IE 7 standard mode it doesn't view properly, but in
+      quirks mode it views ok. No problems with IE 8 and 9, though.
+
+Version 9.3
+
+    * Important bugfix: Bulk delete caused JavaScript error.
+
+Version 9.2
+
+    * Added support for zipped bulk download of files and directories.
+    * Bugfix: Set session save path if PHP_AUTH_USER is set.
+    * Optimized download mail notification.
+
+Version 9.1
+
+    * Important bugfix: Some dialogs caused a JavaScript error because of a PHP warning inside the JSON string.
+
+Version 9.0
+
+    * Important bugfix: Upload via Perl didn't work if temporary directory was not the default directory.
+    * Bugfix: View filename in error message if upload fails.
+    * Bugfix: Renamed icon "exe.gif" to "program.gif".
+    * Added support for right-click context menu - does not work with Opera, though.
+    * Lots of improvements under the hood.
+
+Version 8.34
+
+    * Important bugfix: Cleaning of temporary directory didn't work if it was not the default directory.
+    * Added FTP username to cached files to make them unique.
+    * Bugfix: In FTP mode, the start directory was not set correctly when it was passed as argument to the
+      FileManager constructor and the FTP host has not been set in the config file.
+
+Version 8.33
+
+    * Updated Java uploader.
+
+Version 8.32
+
+    * Path to temporary directory and log directory can be changed now.
+    * Added optional prefix for log file names.
+
+Version 8.31
+
+    * Added Google Docs Viewer support for several file types.
+
+Version 8.30
+
+    * Fixed cache bug when moving or copying files.
+
+Version 8.29
+
+    * Minor code optimization.
+
+Version 8.28
+
+    * Added further security patches.
+
+Version 8.27
+
+    * Added security patch for Java uploader.
+
+Version 8.26
+
+    * Added patch for IE 9 in code editor.
+
+Version 8.25
+
+    * Added possibility to modify prefix for containers, session and cookie variables.
+    * Fixed viewing and editing of text files if encoding is set to UTF-8.
+
+Version 8.24
+
+    * Optimized image preview.
+
+Version 8.23
+
+    * Fixed code editor look.
+
+Version 8.22
+
+    * Added support for image rotation. Note: don't rotate an image too often, because there will be a quality loss!
+    * Updated Java uploader.
+
+Version 8.21
+
+    * Added syntax hilighting for SQL files.
+
+Version 8.20
+
+    * Optimized screen layout.
+    * Added syntax hilighting for XML files.
+
+Version 8.19
+
+    * Added syntax hilighting for Perl scripts.
+    * Did some JavaScript code refactoring.
+    * Fixed text editor reset bug.
+
+Version 8.18
+
+    * Added the following file extensions to the list of editable text files: xml, xsl, xslt, xsd, xul, dtd, wsdl,
+      rdf.
+    * Fixed text editor size.
+    * Removed rounded corners - they didn't work on several browsers (incl. IE), it was a pain in the ass to make
+      them look good, and they messed up some content.
+
+Version 8.17
+
+    * Optimized code viewer.
+    * Added FTPS support (requires PHP 4.3.0 or higher with OpenSSL).
+    * Optimized directory listing cache.
+
+Version 8.16
+
+    * Added code viewer.
+    * Some code optimizations.
+
+Version 8.15
+
+    * Fixed typo in template.inc.php.
+    * Added @ to date() and strtotime() functions in order to surpress warnings of PHP 5.3+ occurring when timezone
+      is not set in php.ini file.
+    * Bugfix: Variable startSubDirs is working again.
+    * Omit "hidden" directories when performing search.
+    * Fixed viewing of documents in search results.
+    * Minor optimizations.
+
+Version 8.14
+
+	* Important bugfix: Set HTTP content type header to text/html again because of problems with file uploads.
+    * Thumbnails are cached now.
+    * Optimized cache.
+    * File upload: If file backups are disabled, files will now be overwritten in local mode, too.
+    * Fixed default file and directory permissions setting.
+    * Fixed wrong modification date in FTP mode (UNIX).
+
+Version 8.13
+
+    * Several important bugfixes and optimizations - if you have version 8.10 or higher, you should
+      make an update.
+
+Version 8.12
+
+    * Bugfix: Do not cache search results.
+    * Album covers of MP3 files can be enlarged now (if ID3 tags are enabled).
+
+Version 8.11
+
+    * Optimized cache.
+
+Version 8.10
+
+    * Cache directory listings.
+
+Version 8.9
+
+    * Added HTTP header that prevents robots from indexing.
+    * Set HTTP content type header to text/json.
+    * Optimized FileManager integration.
+    * Minor code optimizations.
+
+Version 8.8
+
+    * Added memory limit setting.
+
+Version 8.7
+
+    * Optimized image preview.
+
+Version 8.6
+
+    * Renamed menu item "View document" to "View".
+    * Optimized dialog position on screen.
+    * Minor code optimizations.
+
+Version 8.5
+
+    * Added icon for PowerPoint documents.
+    * It's possible to view text files now.
+
+Version 8.4
+
+    * Added support for Google document viewer.
+
+Version 8.3
+
+    * Bugfix: Added workaround to prevent JavaScript error in IE 8.
+
+Version 8.2
+
+    * Added possibility to set multiple passwords and start directories.
+    * Minor fixes for older PHP versions.
+
+Version 8.1
+
+    * Bugfix: Removed redundant comma in function fmLib.playSound that caused JavaScript error in IE 8 on Windows 7.
+
+Version 8.0
+
+    * JavaScript code refactoring.
+    * Modified configuration file syntax.
+    * Added "remember password" feature.
+    * Added rounded corners and dialog box shadows - not supported by some browsers, though.
+    * Added possibility to disable file/directory search.
+    * Several minor improvements under the hood.
+
+Version 7.30
+
+    * Fixed sorting.
+
+Version 7.29
+
+    * Fixed icon view.
+
+Version 7.28
+
+    * Bugfix: Keep directories together when sorting first column.
+    * Fixed early filename cut-off in name column.
+    * Added no-wrap for title row.
+
+Version 7.27
+
+    * Sort list and switch list view without XHR.
+    * Code refactoring.
+
+Version 7.26
+
+    * Use FTP asynchronous mode (non-blocking) for file download - requires PHP 4.3.0 or higher.
+    * Media player can be used now regardless if file download is enabled or not.
+
+Version 7.25
+
+    * Code optimization: Added classes FileBase and FileMp3.
+
+Version 7.24
+
+    * Added possibility to disable image preview.
+    * For MP3 files, use embedded image as preview image if available.
+
+Version 7.23
+
+    * Added ID3 tag reader for MP3 files. Please note that if you use this feature in FTP mode, the MP3 files will
+	  have to be copied to the local file system first - this may take some time.
+
+Version 7.22
+
+    * Added upload/download hooks.
+
+Version 7.21
+
+    * Don't send download info mail when media player views a video.
+    * Change dialog opacity when dragging.
+
+Version 7.20
+
+    * Fixed directory tree.
+
+Version 7.19
+
+    * Bugfix: Deletion of multiple files works again.
+    * Added expand/contract icons to directory tree.
+    * Minor code optimization.
+
+Version 7.18
+
+    * Media player supports MP4 and FLV videos now.
+
+Version 7.17
+
+    * Media player supports SWF files now.
+    * Set the MIME type depending on the file extension when sending a file.
+
+Version 7.16
+
+    * Added media player.
+
+Version 7.15
+
+    * Fixed FTP root directory error ("Could not read directory /").
+
+Version 7.14
+
+    * Optimized switching of listing view.
+    * Keep sort order when switching listing view.
+
+Version 7.13
+
+    * New and modified files and folders will be marked now, but just for one day.
+    * Minor optimization.
+
+Version 7.12
+
+    * Added possibility to save log messages.
+
+Version 7.11
+
+    * Added possibility to expand and contract directory tree folders.
+    * Directory tree will only be loaded if folders have been added, renamed, moved or deleted.
+
+Version 7.10
+
+    * Added support for sharpening of thumbnails and resized images.
+    * Changed Java uploader style.
+
+Version 7.9
+
+    * Added configuration variables authUser and authPassword.
+
+Version 7.8
+
+    * Added Java uploader.
+
+Version 7.7
+
+    * Optimized upload progress bar.
+    * Optimized thumbnail creation.
+    * Added support for automatic image resizing.
+    * Optimized cleaning of temporary directories.
+    * Added image dimensions to file details.
+    * Fixed viewing of file path in file details.
+
+Version 7.6
+
+    * Optimized Perl uploader.
+    * Speeded up directory tree creation.
+
+Version 7.5
+
+    * Modified download headers for IE 7.
+    * Use separate cache and upload directories for each user.
+
+Version 7.4
+
+    * Optimized Perl uploader.
+    * Added possibility to move files and directories.
+    * Added possibility to copy files.
+    * Added root directory to directory tree.
+
+Version 7.3
+
+    * Optimized Perl uploader.
+
+Version 7.2
+
+    * Added Perl uploader.
+    * Made some minor improvements.
+
+Version 7.1
+
+    * Renamed folder "icons" because of stupid Apache default setting.
+
+Version 7.0
+
+    * JSON is used now to reduce XHR traffic.
+    * Added possibility to hide specific list columns.
+    * Added possibility to delete files from the "recycle bin".
+    * Made some other minor improvements.
+
+Version 6.10
+
+    * Added support for file restoring.
+
+Version 6.9
+
+    * Files can be saved from URLs now.
+
+Version 6.8
+
+    * Bugfix: File upload is possible again when log window is disabled.
+    * Added possibility to hide arbitrary directories.
+    * Modified log window.
+    * Added icons for video and audio files.
+    * Added memory usage to debug window.
+
+Version 6.7
+
+    * Download of very large files should be possible now.
+
+Version 6.6
+
+    * Added separate class for events.
+    * Fixed setting of default permissions.
+
+Version 6.5
+
+    * Added support for e-mail notification after file downloads.
+    * Fixed viewing for IE 6 (hopefully). Hey, why don't you use a modern browser? ;-)
+
+Version 6.4
+
+    * Minor bugfix.
+
+Version 6.3
+
+    * Added possibility to allow only files with certain extensions.
+    * Added support for e-mail notification after file uploads.
+
+Version 6.2
+
+    * Optimized UTF-8 support.
+
+Version 6.1
+
+    * Bugfix: Open empty directories in FTP mode.
+
+Version 6.0
+
+    * Added action menu.
+    * Added column "permissions" to detailed view.
+    * Added code editor with realtime syntax hilighting.
+    * Added directory tree.
+    * Added configuration setting for fixed height.
+    * Added full UTF-8 support.
+
+Version 5.23
+
+    * In FTP mode, FileManager works with an empty start directory now (instead of a dot).
+
+Version 5.22
+
+    * FTP start directory name can contain dots now.
+
+Version 5.21
+
+    * Bugfix: Multiple instances of the FileManager class will work again.
+
+Version 5.20
+
+    * Added possibility to set locale.
+
+Version 5.19
+
+    * Added possibility to hide disabled icons.
+
+Version 5.18
+
+    * Optimized encoding handling.
+    * You can choose now which folders should be visible within the start directory.
+
+Version 5.17
+
+    * Added possibility to set encoding (character set).
+    * Fixed text file editor - non-ASCII characters should be saved correctly now.
+    * Language files are no PHP files anymore.
+
+Version 5.16
+
+    * SECURITY PATCH: Switch to start directory if opening of a directory fails.
+    * Fixed cookie handling.
+    * Added possibility to view file path in file details.
+    * Added file type icon in file details.
+    * Added symbolic link target in file details. Only for local file system.
+    * Added possibility to choose action when clicking on filename (get file or view file info).
+    * Switched to UTF-8.
+    * Optimized parsing of last modification date in FTP mode.
+
+Version 5.15
+
+    * By popular request, a click on the file name opens the file (or directory) now instead of viewing the
+	  file information box. To view the file information box, click on the new icon.
+
+Version 5.14
+
+    * Fixed viewing of file type icons.
+    * Set error reporting to E_ALL ^ E_NOTICE (this is the PHP default value).
+    * Moved time limit setting to FileManager class.
+    * Added output buffering for better integration into other projects.
+
+Version 5.13
+
+    * Fixed image preview in FTP mode (again).
+    * Added new class "Tools" as container for general functions.
+    * Added possibility to view debug infos.
+
+Version 5.12
+
+    * Fixed listing view for Windows FTP servers.
+    * Added length limit for file names in details view.
+
+Version 5.11
+
+    * Added possibility to start FileManager with a search result.
+    * Keep search results when switching listing view.
+
+Version 5.10
+
+    * Bugfix: Files saved with the editor don't have plus signs replaced with blanks anymore.
+    * Added possiblity to delete several files at once.
+
+Version 5.9
+
+    * SECURITY PATCH: Prevent access to directory levels above start directory. This bug was caused by an
+	  incorrect bracket.
+
+Version 5.8
+
+    * Bugfix: Removed false error message (only PHP 4) when changing permissions in FTP mode.
+    * Added workaround for listing of directories with spaces in FTP mode - some FTP servers seem to need this.
+
+Version 5.7
+
+    * Added configuration variable hideSystemType.
+
+Version 5.6
+
+    * Bugfix: Set default permissions correctly.
+
+Version 5.5
+
+    * Added possibility to hide files with arbitrary extensions.
+
+Version 5.4
+
+    * Added log message for failed file uploads.
+
+Version 5.3
+
+    * Password protection works with multiple instances now.
+    * Optimized "icons" view.
+    * Optimized file upload.
+
+Version 5.2
+
+    * Added support for backups.
+    * Added support for password protection (login).
+
+Version 5.1
+
+    * Some code optimization.
+
+Version 5.0
+
+    * New object-oriented code, but still compatible with PHP 4.
+    * FileManager uses AJAX now.
+    * Added log message window.
+    * Added cache for images when in FTP mode.
+
+Version 4.11
+
+    * Added port number and passive mode to FTP settings.
+    * Fixed image preview in FTP mode.
+
+Version 4.10
+
+    * Bugfix: Use FTP command CHMOD (for PHP 4) with octal number. Note: This only works if your FTP server
+	  accepts CHMOD via SITE command.
+
+Version 4.9
+
+    * Security patch: Prevent malicious editing of text files.
+
+Version 4.8
+
+    * Optimized automatic fmWebPath setting.
+
+Version 4.7
+
+    * Added support for messages containing apostrophes (language files).
+    * The variable fmWebPath (configuration) is not required anymore.
+
+Version 4.6
+
+    * Removed dot entry (current directory) in FTP listings.
+    * Added support for multiple FileManager "instances".
+
+Version 4.5
+
+    * Added support for file and directory names including apostrophes. NOTE: When uploading a file with an
+	  apostrophe in its name, some PHP versions seem to cut anything before the apostrophe including the apostrophe
+	  itself. Example: "Peter's Song.mp3" will become "s Song.mp3". This is a PHP bug, not a restriction of this software.
+
+Version 4.4
+
+    * Added support for multiple directory creation (directory names separated by slashes).
+
+Version 4.3
+
+    * Added uniqe ID to thumbnail path to prevent browser caching.
+
+Version 4.2
+
+    * Directories in search results can be opened now.
+    * File search bugfix.
+
+Version 4.1
+
+    * Added file search.
+    * The current directory is cached now, so sorting is possible without further directory access.
+    * Added refresh button.
+
+Version 4.0
+
+    * Removed error message when reloading page after opening a sub-directory.
+    * Disabled upload, download, renaming, removing, and permission changing of hidden system files.
+    * Changed size display of small files (less than 1 KB) from KB to B.
+    * Added file extension "ini" to the list of editable text files.
+    * Added possibility to switch between "details" and "icons" view.
+
+Version 3.3
+
+    * Added support for files and directories named "0".

@@ -1,0 +1,57 @@
+<?php
+session_start();
+require_once('../../includes/core.php');
+
+$status = 0;
+$price = 2.40;
+
+if (isset($_POST['amx_bans_activate'])) {
+		if ($server_balance - $price >= 0) {
+			serviceCharge('hlxbans', '', $_SESSION['id'], $price);
+			$DB->Execute('UPDATE `servers` SET `amx_bans` = ? WHERE `id` = ?', array(1, $_SESSION['id']));
+			$_SESSION['amx_bans'] = 1;
+			$login_ssh2->exec('/usr/local/cstrike/plugin.sh ' . $_SESSION['id'] . ' system_amxbans');
+			cfgReload();
+			serverRestart();			
+			$status = 1;
+			$msg = $returnedData_msg['request'];
+		}
+		else {
+			$msg = 'Грешка: Вашия баланс не е достатъчен за да активирате тази услуга. Можете да заредите вашия баланс от <a href="/balance-add">тук.</a>';			
+		}		
+}
+
+
+
+if (!isset($_POST['amx_bans_activate'])) {
+
+	$host = trim($_POST['amx_bans_host']);
+	$user = trim($_POST['amx_bans_dbuser']);
+	$passwd = trim($_POST['amx_bans_dbpasswd']);
+	$db = trim($_POST['amx_bans_db']);
+	
+	if (!empty($host) || !empty($user) || !empty($passwd) || !empty($db)) {
+		$DB->Execute('UPDATE `servers` SET `amx_bans_host` = ?, `amx_bans_db` = ?, `amx_bans_dbuser` = ?, `amx_bans_dbpasswd` = ? WHERE `id` = ?', array($host, $db, $user, $passwd, $_SESSION['id']));
+
+		$_SESSION['amx_bans_host'] = $host;
+		$_SESSION['amx_bans_dbuser'] = $user;
+		$_SESSION['amx_bans_dbpasswd'] = $passwd;
+		$_SESSION['amx_bans_db'] = $db;
+		
+		cfgReload();
+		serverRestart();
+		$status = 1;
+		$msg = $returnedData_msg['request'];
+	}
+	else {
+		$msg = 'Грешка: моля попълнете всички полета!';
+	}
+}
+
+echo json_encode(
+	array(
+		'status' => $status,
+		'msg' => $msg,
+	)
+);
+?>

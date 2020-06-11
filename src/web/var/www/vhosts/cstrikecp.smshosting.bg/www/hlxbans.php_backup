@@ -1,0 +1,124 @@
+<?php require_once('../templates/header.php'); ?>
+<div class="container-fluid">
+		<div class="content">
+				<?php require_once('./includes/etc/header-stats.php');  ?>		
+			<div class="row-fluid">
+				<div class="span12">
+							<div class="alert alert-info alert-block">
+								<a href="#" data-dismiss="alert" class="close">×</a>
+  								<h4 class="alert-heading">Информация!</h4>
+  																<b>GM AMXBans</b> е система за банове във вашия сървър, която работи с база данни (MySQL) и по този начин освен, че самата бан система е подобрена от стандартната
+								тя разполага с уеб система, която показва самите забраните и администратори в реално време.
+								<div style="text-align: center;"><img src="/img/amxbans.png" /></div>
+								Системата е разделена на две части: Плъгин система и Уеб система.<br /><br />
+								Ние Ви предоставяме самата плъгин система интегрирана във вашия сървър както и <b>безплатна</b> опция за настройка на вашите MySQL данни. <br /><br />
+
+								Ако нямате собствен MySQL сървър можете да се възползвате от такъв към нашата услуга <a href="http://www.novahost.bg/hosting.html" target="_blank">cPanel уеб хостинг</a>, която притежава отдалечена MySQL връзка.
+								<br /><br />
+							</div>	
+<?php if ($_SESSION['ftp'] != 2) { ?>								
+					<div class="box">
+						<div class="box-head">
+							<h3>Активация и настройка на HLX Bans (AMXBans)</h3>
+						</div>
+						<div class="box-content">
+
+							
+								<?php if ($_SESSION['mode'] == 1) { ?>
+
+								За да активирате GM AMXBans системата на вашия сървър трябва да имате активиран мод към вашия сървър. Това можете да направите <a href="/mode">тук</a>.
+								<?php
+								}
+								else {
+								?>
+
+								<?php
+									if ($_SESSION['amx_bans'] == 0) { ?>
+										<form action="/submit/hlxbans.php" method="POST">
+										<input type="hidden" name="amx_bans_activate" />
+										
+										<br />
+										<img src="/img/icons/essen/16/bank.png" /> <span style="color: green;"><strong>Цена:</strong></span><br />
+										<strong>2.40 лв с ДДС</strong>							
+										<br />									
+										
+										<div style="text-align: center;">
+										<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+								<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+										<input class="navigation_button btn btn-primary" type="submit" value="Активирай AMX Bans 6.0" />
+										</div>
+										</form>
+										<br />
+								<?php 
+									}
+									elseif ($_SESSION['amx_bans'] == 1) {
+									$amx_bans_details = $DB->GetRow('SELECT * FROM `servers` WHERE `id` = ?', $_SESSION['id']);
+								?>
+								MySQL данни:<br /><br />
+								<p>
+								Хост: <b><?php echo $amx_bans_details['amx_bans_host']; ?></b><br />
+								База данни: <b><?php echo $amx_bans_details['amx_bans_db'] ?></b><br />
+								Потребител: <b><?php echo $amx_bans_details['amx_bans_dbuser']; ?></b><br />
+								Парола: <b><?php echo $amx_bans_details['amx_bans_dbpasswd']; ?></b><br />
+								</p>
+								Адреса който трябва да разрешите за отдалечен достъп до MySQL: <strong><?php echo $ssh_ip; ?></strong> или <strong><?php echo gethostbyname($ssh_ip); ?></strong></strong>
+								<br /><br />
+								<form action="/submit/hlxbans.php" method="POST">
+								<p>
+								<b>Хост:</b> (<small><i>IP адрес или хостнейм</i></small>)<br />
+								<input type="text" name="amx_bans_host" /> 
+								</p>
+								<p>
+								<b>Име на база данни:</b><br />
+								<input type="text" name="amx_bans_db" />
+								</p>
+								<p>
+								<b>Потребител:</b><br />
+								<input type="text" name="amx_bans_dbuser" />
+								</p>
+								<p>
+								<b>Парола:</b><br />
+								<input type="text" name="amx_bans_dbpasswd" />
+								</p>
+								<p>
+								<input class="navigation_button btn btn-primary"  type="submit" value="Изпрати" />
+								</p>
+								<br />
+								<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+								<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+								</form>
+
+								<form action="/submit/hlxbans_pause.php" method="POST">
+								<input class="navigation_button btn btn-primary"  type="submit" value="Паузирай HLXBans" />
+								<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+								<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+
+								</form>
+								<?php	
+									}
+									else { ?>
+										Вашия GM AMXBans е паузиран. Можете да го активирате отново към вашия сървър отново.<br />
+										<form action="/submit/hlxbans_unpause.php" method="POST">
+										<input class="navigation_button btn btn-primary"  type="submit" value="Стартирай HLXBans" />
+										<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+										<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+
+										</form>									
+								<?php
+									}
+								}
+								?>
+								<span style="color: red;"><strong>*Неправилната конфигурация на системата може да предизвика аномалии във вашия сървър или контролен панел. <br />*Можете да проследите работата на системата чрез вашия <a href="/log">сървър лог</a>.</strong></span><br />
+								<strong>*Версия: <b>1.6</b> (Non-Steam)</strong><br />
+								<strong>*СМСХостинг.БГ предоставя единствено Plugin системата. Уеб частта можете да изтеглите от <a href="http://downloads.smshosting.bg/AMXBans-Web-1.6.zip">тук</a>.</strong><br />
+								<strong>*Ако използвате старата версия на системата - HLXBans, можете да изтеглите Уеб частта от <a href="http://downloads.smshosting.bg/AMXBans-Web-6.13.zip">тук</a>.</strong><br />
+						</div>
+					</div>
+													<?php } else { ?>
+				Тази функция не е налична поради пълният FTP достъп към сървъра.
+			<?php } ?>
+				</div>
+			</div>			
+		</div>	
+	</div>
+<?php require_once('../templates/footer.php'); ?>

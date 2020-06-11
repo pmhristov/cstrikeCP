@@ -1,0 +1,309 @@
+/*********************************************************************************************************
+ This code is part of the FileManager software (www.gerd-tentler.de/tools/filemanager), copyright by
+ Gerd Tentler. Obtain permission before selling this code or hosting it on a commercial website or
+ redistributing it over the Internet or in any other medium. In all cases copyright must remain intact.
+*********************************************************************************************************/
+
+/*********************************************************************************************************
+ general
+*********************************************************************************************************/
+* {
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+.fmBody {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: #F0F0F0;
+}
+
+/*********************************************************************************************************
+ content
+*********************************************************************************************************/
+.fmContent, .fmContentDisabled, .fmContentNew {
+	font-family: "Trebuchet MS", Arial, Helvetica;
+	font-size: 11px;
+}
+.fmContent {
+	color: #000000;
+	font-weight: normal;
+}
+.fmContentDisabled {
+	color: #A0A0A0;
+	font-weight: normal;
+}
+.fmContentNew {
+	color: #D00000;
+	font-weight: bold;
+}
+.fmThumbnail {
+	background-image: url(../icn/mediaLoading.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.fmMenuTitle {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	background-color: #F0F8FF;
+	color: #000080;
+}
+.fmMenuBorder {
+	border-top: 1px solid #405BA2;
+	border-bottom: 1px solid #405BA2;
+}
+.fmMenuItem {
+	font-family: "Trebuchet MS", Arial, Helvetica;
+	font-size: 11px;
+	color: #000080;
+}
+.fmMenuItemDisabled {
+	font-family: "Trebuchet MS", Arial, Helvetica;
+	font-size: 11px;
+	color: #A0A0A0;
+}
+
+/*********************************************************************************************************
+ hyperlinks
+*********************************************************************************************************/
+.fmLink, .fmLink:active, .fmLink:visited {
+	color: #000000;
+	text-decoration: none;
+}
+.fmLink:hover {
+	text-decoration: underline;
+	color: #0000FF;
+}
+
+/*********************************************************************************************************
+ error and log messages, debug info
+*********************************************************************************************************/
+.fmError {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	padding: 2px;
+	text-align: center;
+	border: 1px dashed #D00000;
+	color: #D00000;
+	background-color: #FFF0E0;
+}
+.fmLogDefault, .fmLogInfo, .fmLogError {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: normal;
+}
+.fmLogDefault {
+	color: #00B000;
+}
+.fmLogInfo {
+	color: #0000FF;
+}
+.fmLogError {
+	color: #FF4040;
+}
+.fmLogWindow {
+	background-color: #F0F8FF;
+}
+.fmSearchResult {
+	font-family: "Trebuchet MS", Arial, Helvetica;
+	font-size: 11px;
+	background-color: #FFFFD0;
+}
+.fmDebugInfo {
+	background-color: white;
+	color: #808080;
+	border: 1px dashed #808080;
+	padding: 2px;
+	text-align: left;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+}
+
+/*********************************************************************************************************
+ forms, fields and buttons
+*********************************************************************************************************/
+.fmForm {
+	margin: 0;
+}
+.fmField {
+	font-family: "Courier New", Courier;
+	font-size: 12px;
+	font-weight: normal;
+	border: 2px inset #FFFFFF;
+}
+.fmButton {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 11px;
+	font-weight: bold;
+	margin-top: 4px;
+	width: 100px;
+}
+
+/*********************************************************************************************************
+ table header cells
+*********************************************************************************************************/
+.fmTH1, .fmDialog, .fmDialogTitle {
+	cursor: default;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #405BA2;
+}
+.fmTH2 {
+	cursor: default;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	color: #000000;
+	background-color: #C0D0F0;
+}
+.fmTH3 {
+	cursor: default;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding: 2px;
+	border: 1px outset #FFFFFF;
+	background-color: #708BD2;
+	margin-left: 1px;
+	text-align: center;
+	white-space: nowrap;
+}
+.fmTH4 {
+	cursor: pointer;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	padding: 2px;
+	border: 1px outset #FFFFFF;
+	color: #FFFFFF;
+	background-color: #A0B0D0;
+	margin-left: 1px;
+	text-align: center;
+	white-space: nowrap;
+}
+.fmTH5 {
+	cursor: pointer;
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	padding-left: 3px;
+	padding-top: 3px;
+	padding-bottom: 1px;
+	padding-right: 1px;
+	border: 1px inset #FFFFFF;
+	color: #FFFFFF;
+	background-color: #A0B0D0;
+	margin-left: 1px;
+	text-align: center;
+	white-space: nowrap;
+}
+
+/*********************************************************************************************************
+ table data cells
+*********************************************************************************************************/
+.fmTD1 {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.fmTD2 {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: normal;
+	color: #000000;
+	background-color: #E0F0FF;
+}
+.fmTD3 {
+	font-family: Verdana, Arial, Helvetica;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #708BD2;
+}
+
+/*********************************************************************************************************
+ dialog boxes
+*********************************************************************************************************/
+.fmDialog {
+	position: absolute;
+	z-index: 69;
+	visibility: hidden;
+	display: none;
+	border: 1px outset #FFFFFF;
+}
+.fmDialogTitle {
+	padding: 4px;
+	cursor: move;
+	overflow: hidden;
+	white-space: nowrap;
+	text-align: left;
+}
+
+/*********************************************************************************************************
+ directory tree
+*********************************************************************************************************/
+.fmExplorer, .fmExplorerHilight, .fmExplorerActive, .fmExplorerContent, .fmExplorerFileCnt  {
+	font-family: "Trebuchet MS", Arial, Helvetica;
+	font-size: 11px;
+}
+.fmExplorer, .fmExplorerHilight, .fmExplorerActive {
+	padding: 4px;
+	display: block;
+	text-align: left;
+	white-space: nowrap;
+	overflow: hidden;
+}
+.fmExplorerHilight {
+	background-color: #C0D0F0;
+}
+.fmExplorerActive {
+	background-color: #D0E0F0;
+}
+.fmExplorerFileCnt {
+	color: #808080;
+}
+
+/*********************************************************************************************************
+ progress bar
+*********************************************************************************************************/
+.fmProgressBar {
+	height: 10px;
+	background-color: #708BD2;
+	border: 1px outset white;
+}
+.fmProgressBarBG {
+	height: 12px;
+	background-color: #E0E0E0;
+	border: 1px solid black;
+	text-align: left;
+}
+.fmProgressBarText {
+	font-family: Arial, Helvetica;
+	font-size: 10px;
+	white-space: nowrap;
+}
+.fmProgressBarCont {
+	background-color: #B0C0D0;
+	border: 1px solid white;
+	margin: 3px;
+}
+
+/*********************************************************************************************************
+ shadows
+*********************************************************************************************************/
+.fmShadow {
+	-moz-box-shadow: 3px 3px 4px #808080;
+	-webkit-box-shadow: 3px 3px 4px #808080;
+	box-shadow: 3px 3px 4px #808080;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#808080');
+}

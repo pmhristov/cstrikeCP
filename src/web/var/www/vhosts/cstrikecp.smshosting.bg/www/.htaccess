@@ -1,0 +1,10 @@
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#Order Deny,Allow
+#Deny from all
+#Allow from 46.35.188.8 46.35.179.37
+
+#ErrorDocument 403 "/403.php"

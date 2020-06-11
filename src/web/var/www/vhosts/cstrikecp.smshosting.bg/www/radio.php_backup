@@ -1,0 +1,122 @@
+<?php require_once('../templates/header.php'); ?>
+<div class="container-fluid">
+		<div class="content">
+				<?php require_once('./includes/etc/header-stats.php');  ?>		
+			<div class="row-fluid">
+				<div class="span12">
+							<div class="alert alert-info alert-block">
+								<a href="#" data-dismiss="alert" class="close">×</a>
+  								<h4 class="alert-heading">Информация!</h4>
+								<div style="text-align: center;"><img src="/img/csradio.png" alt="" /></div>
+								<b>Online Radio</b> е система която позволява чрез командата /radio да избирате радио сървър и да слушате съдържанието което се излъчва. <br />
+								<br /> Системата се стартирва от командата <b>/radio</b> и се деактивира чрез командата <b>/stopradio</b>
+							</div>	
+							<?php if ($_SESSION['ftp'] != 2) { ?>							
+
+							<?php if ($_SESSION['mode'] == 1) { ?>
+							За да активирате Online Radio системата на вашия сървър трябва да имате активиран мод към вашия сървър. Това можете да направите <a href="/mode">тук</a>.
+								<?php
+								}
+								else {
+								?>							
+						<?php
+								if ($_SESSION['radio'] == 0) { ?>							
+					<div class="box">
+						<div class="box-head">
+							<h3>Активация и настройка на Online Radio</h3>
+						</div>
+						<div class="box-content">
+										<form action="/submit/radio.php" method="POST">
+										<input type="hidden" name="radio_activate" />
+										
+										<br />
+										<img src="/img/icons/essen/16/bank.png" /> <span style="color: green;"><strong>Цена:</strong></span><br />
+										<strong>2.40 лв с ДДС</strong>							
+										<br />									
+										
+										<div style="text-align: center;">
+										<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+								<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+										<input class="navigation_button btn btn-primary" type="submit" value="Активирай Online Radio" />
+										</div>
+										</form>
+										<br />
+
+						</div>
+					</div>
+								<?php 
+									}
+									else {
+									$radio_servers = $DB->GetAll('SELECT * FROM `radio` WHERE `server_id` = ?', array($_SESSION['id']));
+								?>	
+				<div class="box">	
+							<div class="box-head tabs">
+								<h3>Активни радио адреси</h3>
+							</div>						
+						<div class="box-content box-nomargin">
+<?php if (empty($radio_servers)) { ?>
+<div style="text-align: center;"><b>Няма активни радио сървъри</b></div>
+<?php } else { ?>
+<table class="table table-striped table-bordered">
+<thead>
+<tr>
+<th>Име</th>
+<th>Адрес</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<?php foreach ($radio_servers as $radio_server) { ?>
+<tr>
+<td><?php echo $radio_server['name']; ?></td>
+<td><?php echo $radio_server['addr']; ?></td>
+<td style="text-align: center;"><input type="button" class="btn btn-danger" value="Премахни" name="radio_remove" id="radio_remove" rel="<?php echo $radio_server['id']; ?>"></td>
+</tr>
+<?php } ?>
+</tbody>
+</table>
+<?php } ?>
+						</div>
+				</div>	
+
+				<div class="box">	
+							<div class="box-head tabs">
+								<h3>Добави радио адрес</h3>
+							</div>						
+						<div class="box-content box-nomargin">
+							<form action="/submit/radio.php" method="POST">
+								<p>
+								<b>Име на радио сървъра:</b><br />
+								<input type="text" name="radio_name" /> 
+								</p>
+								<p>
+								<b>Адрес към .asx файла:</b><br />
+								<input type="text" name="radio_addr" />
+								</p>
+								<p>
+								<input class="navigation_button btn btn-primary"  type="submit" value="Изпрати" />
+								</p>
+								<br />
+								<div class="error-box alert alert-block alert-danger" style="display: none;">Важно съобщение</div>
+								<img src="/img/loading.gif" id="img_loading" alt="Зареждане, моля изчакайте... (Ако до две минути тази картинка не е изчезнала това означава че има някакъв проблем с услугата. Свържете се незабавно с нашия екип." />
+								</form> 
+								<br />
+								<a target="_blank" href="http://help.smshosting.bg/%D0%BE%D0%BD%D0%BB%D0%B0%D0%B9%D0%BD-%D1%80%D0%B0%D0%B4%D0%B8%D0%BE-%D0%B2-counter-strike-%D1%81%D1%8A%D1%80%D0%B2%D1%8A%D1%80/">Как да поставим радио в нашия гейм сървър.</a>
+							<br /><br />
+							<strong>*СМСХостинг.БГ не отговаря за грешно въведен адрес</strong>
+						</div>
+				</div>				
+								
+								
+								<?php	
+									}	
+								}
+								?>	
+								<?php } else { ?>
+				Тази функция не е налична поради пълният FTP достъп към сървъра.
+			<?php } ?>								
+				</div>
+			</div>			
+		</div>	
+	</div>
+<?php require_once('../templates/footer.php'); ?>
