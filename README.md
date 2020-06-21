@@ -204,10 +204,12 @@ The frontend (web) and the backend (server) dont have to be on the same physical
 Just execute the following commands ./start and ./stop scripts in the root main server directory. They connect with the database and get everything needed to generate the command for propper start of the server.
 
 * Some screenshots
-
+** Login page
 ![Login page](https://smshosting.bg/images/cstrikecp/login.jpg)
 
+** Dashboard
 ![Dashboard](https://smshosting.bg/images/cstrikecp/dashboard.jpg)
 
+** Mode change page
 ![Change mode page](https://smshosting.bg/images/cstrikecp/mode_change.jpg)
 
