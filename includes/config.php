@@ -3,16 +3,16 @@
 
 define('DB_TYPE', 'mysqli');
 define('DB_USER', 'cstrikecp');
-define('DB_PASS', 'xxxxxxxxxxxxxxxxxx');
+define('DB_PASS', 'xxxxxxxxxxxxxxxxx');
 define('DB_HOST', 'localhost');
 define('DB_NAME', 'cstrikecp');
 define('DB_OPTIONS', '');
 
 define('DB_TYPE_PAYMENT', 'mysqli');
-define('DB_USER_PAYMENT', 'payment');
-define('DB_PASS_PAYMENT', 'xxxxxxxxxxxxxxxxxxxx');
+define('DB_USER_PAYMENT', 'cstrikecp');
+define('DB_PASS_PAYMENT', 'xxxxxxxxxxxxxxxxx');
 define('DB_HOST_PAYMENT', 'localhost');
-define('DB_NAME_PAYMENT', 'payment');
+define('DB_NAME_PAYMENT', 'cstrikecp');
 define('DB_OPTIONS_PAYMENT', '');
 
 define('ROOT_DIR', '/var/www/vhosts/cstrikecp.smshosting.bg/');
@@ -30,8 +30,20 @@ define('SMTP_PASS', 'xxxxxxxxxxxxx');
 define('SMTP_FROM', 'mail@example.com');
 
 $nodes = array(
-	1 => 'server1.example.com',
-	2 => 'server2.example.com',
+	1 => array(
+		'hostname' => 'server1.example.com',
+		'ipaddress' => '79.98.108.20',
+		'username' => 'root',
+		'port' => '22',
+		'privatekey' => 'id_rsa',
+	),
+	2 => array(
+		'hostname' => 'server2.example.com',
+		'ipaddress' => '79.98.108.160',
+		'username' => 'root',
+		'port' => '22222',
+		'privatekey' => 'rsa_testserver',
+	),
 );
 
 define('DATE', date('Y-m-d'));

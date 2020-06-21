@@ -8,22 +8,22 @@ use phpseclib\Crypt\RSA;
 use phpseclib\Net\SSH2; 
 use phpseclib\Net\SFTP; 
 
-
-
 if (isset($_SESSION['id'])) {
-	$ssh_ip = $nodes[$_SESSION['node_id']];
-
+	$ssh_ip = $nodes[$_SESSION['node_id']]['ipaddress'];
 
 	$key = new RSA();
-	$key->loadKey(file_get_contents('/var/www/.ssh/id_rsa_hlds'));
+	$key->loadKey(file_get_contents(INCLUDE_DIR . 'ssh/' . $nodes[$_SESSION['node_id']]['privatekey']));
 	
-	$login_sftp = new SFTP($ssh_ip, 22222);
-	$login_sftp->login('root', $key);
+	$login_sftp = new SFTP($ssh_ip, $nodes[$_SESSION['node_id']]['port']);
+	$login_sftp->login($nodes[$_SESSION['node_id']]['username'], $key);
 	
-	$login_ssh2 = new SSH2($ssh_ip, 22222);
-	$login_ssh2->login('root', $key);	
+	$login_ssh2 = new SSH2($ssh_ip, $nodes[$_SESSION['node_id']]['port']);
+	$login_ssh2->login($nodes[$_SESSION['node_id']]['username'], $key);	
 	$login_ssh2->setTimeout(60);
 
+	if (!$login_ssh2) {
+		echo 'Warning: Cant connect to SSH';
+	}
 }
 
 if (isset($_SESSION['id'])) {

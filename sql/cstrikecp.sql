@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.9
+-- version 4.9.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Dec 02, 2019 at 12:14 PM
+-- Generation Time: Jun 21, 2020 at 05:08 PM
 -- Server version: 5.5.64-MariaDB
--- PHP Version: 7.2.24
+-- PHP Version: 7.3.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `cstrikecp`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `actions`
+--
+
+CREATE TABLE `actions` (
+  `id` int(11) NOT NULL,
+  `service` varchar(255) NOT NULL,
+  `action` varchar(255) NOT NULL,
+  `service_id` varchar(255) NOT NULL,
+  `code` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -89,8 +103,7 @@ CREATE TABLE `hosts` (
 --
 
 INSERT INTO `hosts` (`id`, `ip`, `port`, `server_id`, `node_id`) VALUES
-(1, '79.98.108.70', 27015, 0, 1),
-(2, '79.98.108.70', 27016, 0, 1);
+(1, '79.98.108.20', 27015, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -2542,6 +2555,16 @@ CREATE TABLE `plugins` (
   `plugin` varchar(255) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
+--
+-- Dumping data for table `plugins`
+--
+
+INSERT INTO `plugins` (`id`, `server_id`, `active`, `plugin`) VALUES
+(1, 1, 1, 'afk_protection'),
+(2, 1, 1, 'anti_speedhack2'),
+(3, 1, 1, 'admin_maxspeed'),
+(4, 1, 1, 'amx_respawn');
+
 -- --------------------------------------------------------
 
 --
@@ -2621,6 +2644,12 @@ CREATE TABLE `servers` (
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `actions`
+--
+ALTER TABLE `actions`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `admins`
@@ -2719,6 +2748,12 @@ ALTER TABLE `servers`
 --
 
 --
+-- AUTO_INCREMENT for table `actions`
+--
+ALTER TABLE `actions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `admins`
 --
 ALTER TABLE `admins`
@@ -2746,7 +2781,7 @@ ALTER TABLE `hosts`
 -- AUTO_INCREMENT for table `last`
 --
 ALTER TABLE `last`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `log`
@@ -2788,7 +2823,7 @@ ALTER TABLE `pluginlist_content`
 -- AUTO_INCREMENT for table `plugins`
 --
 ALTER TABLE `plugins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `radio`
@@ -2806,7 +2841,7 @@ ALTER TABLE `redirects`
 -- AUTO_INCREMENT for table `servers`
 --
 ALTER TABLE `servers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

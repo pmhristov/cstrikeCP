@@ -6,8 +6,6 @@
 	$last_login_ip = $DB->GetRow('SELECT * FROM `last` WHERE `server_id` = ? ORDER BY `id` ASC LIMIT 1', array($_SESSION['id']));
 	if ($srv_details['ftp'] == 1) { $ftp = 'Частичен'; } elseif ($srv_details['ftp'] == 2) {$ftp = 'Пълен';} else {$ftp = 'Няма';}
 	if ($srv_details['master'] == 1) { $master = 'Активен'; } else {$master = 'Неактивен';}
-	//var_dump($nodes[$_SESSION['node_id']]);
-	
 ?>
 	<div class="container-fluid">
 	

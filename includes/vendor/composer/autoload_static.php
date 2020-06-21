@@ -7,6 +7,7 @@ namespace Composer\Autoload;
 class ComposerStaticInit3aecca2629018c7013b9adfbefd226fd
 {
     public static $files = array (
+        'bf9f5270ae66ac6fa0290b4bf47867b7' => __DIR__ . '/..' . '/adodb/adodb-php/adodb.inc.php',
         'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
     );
 
@@ -15,12 +16,20 @@ class ComposerStaticInit3aecca2629018c7013b9adfbefd226fd
         array (
             'phpseclib\\' => 10,
         ),
+        'U' => 
+        array (
+            'User890104\\' => 11,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'phpseclib\\' => 
         array (
             0 => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib',
+        ),
+        'User890104\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/user890104/rcon-client/src/User890104',
         ),
     );
 

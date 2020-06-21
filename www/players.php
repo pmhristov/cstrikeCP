@@ -1,7 +1,5 @@
 <?php 
 	require_once('../templates/header.php'); 
-	require_once(INCLUDE_DIR . 'server_query.php');
-	//$serverstatus = $rcon->exec('status');
 	
 	$last_login_ip = $DB->GetRow('SELECT * FROM `last` WHERE `server_id` = ? ORDER BY `id` ASC LIMIT 1', array($_SESSION['id']));
 	if ($srv_details['ftp'] == 1) { $ftp = 'Частичен'; } elseif ($srv_details['ftp'] == 2) {$ftp = 'Пълен';} else {$ftp = 'Няма';}

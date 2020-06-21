@@ -12,6 +12,7 @@ if (!empty($plugin)) {
 		$server_info = $DB->GetRow('SELECT * FROM `servers` WHERE `id` = ?', array($_SESSION['id']));
 		$DB->Execute('INSERT INTO `plugins` SET `server_id` = ?, `plugin` = ?', array($_SESSION['id'], $plugin));
 		$login_ssh2->exec('/usr/local/cstrike/plugin.sh ' . $_SESSION['id'] . ' ' . $plugin . ' > /dev/null');
+		$login_ssh2->exec('echo kon >> /root/kon3');
 		cfgReload();
 		cfgRestart();
 		$status = 1;

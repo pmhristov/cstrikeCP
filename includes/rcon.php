@@ -5,7 +5,7 @@ if ($_SESSION['game'] == 'hlds') {
 
 	if($server->connect($_SESSION['ip'], $_SESSION['port'], $_SESSION['passwd'])) { 
 		if(!$server->connected)
-		  return $server->connected;
+		return $server->connected;
 		$status = $server->RconCommand('status');
 		$line = explode("\n", $status);
 		$map = substr($line[3], strpos($line[3], ":") + 1);
@@ -22,7 +22,7 @@ if ($_SESSION['game'] == 'hlds') {
 elseif ($_SESSION['game'] == 'srcds') {
 	require_once('libs/rcon_protocol_srcds.php');
 	$server = new Rcon();
-	if($server->rcon_command('79.98.108.70', '27050', 'xxxxxxxxxxxxx', 'status')) { 
+	if($server->connect($_SESSION['ip'], $_SESSION['port'], $_SESSION['passwd'])) { 
 		 
 		$status = $server->rcon_command('79.98.108.70', '27050', 'xxxxxxxxxxxxx', 'status');
 		$line = explode("\n", $status);

@@ -14,7 +14,7 @@ if ($mode != '') {
 		$_SESSION['mode'] = $mode;
 		$login_ssh2->exec('/usr/local/cstrike/mode.sh ' . $_SESSION['id'] . ' ' . $mode  . ' > /dev/null');
 	
-		$DB->Execute('INSERT INTO `actions` SET `service` = ?, `action` = ?, `service_id` = ?, `code` = ?', array('cstrike-server', 'mode - ' . $mode, $_SESSION['ip'] . ':' . $_SESSION['port'], $code));
+		$DB->Execute('INSERT INTO `actions` SET `service` = ?, `action` = ?, `service_id` = ?', array('cstrike-server', 'mode - ' . $mode, $_SESSION['ip'] . ':' . $_SESSION['port']));
 		
 		$plugins = $DB->GetAll('SELECT * FROM `plugins` WHERE `server_id` = ?', array($_SESSION['id']));
 		

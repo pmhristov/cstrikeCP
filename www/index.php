@@ -13,12 +13,12 @@ if (!empty($_POST)) {
 	$server_id = explode('cstrike', $username);
 	$server_id = $server_id[1];
 	$rcon = trim($_POST['rcon']);
-	
+	var_dump($rcon);
 	if (!empty($username) && !empty($rcon)) {
 
 		$server_data = $DB->GetRow('SELECT * FROM `servers` WHERE `active` = ? AND `id` = ? AND `passwd_cp` = ?', array(1, $server_id, $rcon));
 		$host_data = $DB->GetRow('SELECT * FROM `hosts` WHERE `server_id` = ?', array($server_id));
-
+		var_dump($server_data);
 		if (!empty($server_data)) {
 			if ($server_data['suspended'] == 0) {
 				$columns = $DB->Execute('SHOW COLUMNS FROM `servers`');

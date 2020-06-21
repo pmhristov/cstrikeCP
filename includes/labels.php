@@ -59,16 +59,6 @@ $ports = array(
 	'27022',
 );
 
-$ssh_details = array(
-	1 => array(1, 104, '79.124.67.162'),
-	2 => array(105, 208, '78.128.6.2'),
-);
-
-$ftp_hosts = array(
-	1 => array(1, 104, 'csftp.smshosting.bg'),
-	2 => array(105, 208, 'csftp.smshosting.bg'),
-);
-
 $plan_labels = array(
 	1 => array('CS 10'),
 	2 => array('CS 18'),
