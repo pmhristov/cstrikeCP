@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "8c0ed1a6302fd61983b4cc898579052c",
+    "content-hash": "7788310e93c4bfb6b02c9ded42a3d7db",
     "packages": [
         {
             "name": "phpseclib/phpseclib",
-            "version": "2.0.11",
+            "version": "2.0.27",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpseclib/phpseclib.git",
-                "reference": "7053f06f91b3de78e143d430e55a8f7889efc08b"
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/7053f06f91b3de78e143d430e55a8f7889efc08b",
-                "reference": "7053f06f91b3de78e143d430e55a8f7889efc08b",
+                "url": "https://api.github.com/repos/phpseclib/phpseclib/zipball/34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
+                "reference": "34620af4df7d1988d8f0d7e91f6c8a3bf931d8dc",
                 "shasum": ""
             },
             "require": {
@@ -96,43 +96,21 @@
                 "x.509",
                 "x509"
             ],
-            "time": "2018-04-15T16:55:05+00:00"
-        },
-        {
-            "name": "user890104/rcon-client",
-            "version": "v0.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/user890104/rcon-client.git",
-                "reference": "b82035b900dff3e70a313d4b71bab8135f7df62c"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/user890104/rcon-client/zipball/b82035b900dff3e70a313d4b71bab8135f7df62c",
-                "reference": "b82035b900dff3e70a313d4b71bab8135f7df62c",
-                "shasum": ""
-            },
-            "require": {
-                "php-64bit": ">=5.6.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "User890104\\": "src/User890104/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
+            "funding": [
                 {
-                    "name": "Vencislav Atanasov",
-                    "email": "user890104@users.noreply.github.com"
+                    "url": "https://github.com/terrafrost",
+                    "type": "github"
+                },
+                {
+                    "url": "https://www.patreon.com/phpseclib",
+                    "type": "patreon"
+                },
+                {
+                    "url": "https://tidelift.com/funding/github/packagist/phpseclib/phpseclib",
+                    "type": "tidelift"
                 }
             ],
-            "description": "GoldSrc RCON client written in PHP",
-            "time": "2016-09-15T11:17:36+00:00"
+            "time": "2020-04-04T23:17:33+00:00"
         }
     ],
     "packages-dev": [],
@@ -142,5 +120,6 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

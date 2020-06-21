@@ -30,9 +30,8 @@ define('SMTP_PASS', 'xxxxxxxxxxxxx');
 define('SMTP_FROM', 'mail@example.com');
 
 $nodes = array(
-	1 => 'lois.novahost.bg',
-	//2 => 'cleveland.novahost.bg',
-	2 => 'lois.novahost.bg',
+	1 => 'server1.example.com',
+	2 => 'server2.example.com',
 );
 
 define('DATE', date('Y-m-d'));

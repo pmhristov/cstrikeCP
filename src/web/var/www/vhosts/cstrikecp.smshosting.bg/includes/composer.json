@@ -1,6 +1,5 @@
 {
     "require": {
-        "user890104/rcon-client": "^0.1.0",
-        "phpseclib/phpseclib": "~2.0"
+        "phpseclib/phpseclib": "^2.0"
     }
 }

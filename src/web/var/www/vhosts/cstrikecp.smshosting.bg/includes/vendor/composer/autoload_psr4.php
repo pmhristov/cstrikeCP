@@ -7,5 +7,4 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'phpseclib\\' => array($vendorDir . '/phpseclib/phpseclib/phpseclib'),
-    'User890104\\' => array($vendorDir . '/user890104/rcon-client/src/User890104'),
 );

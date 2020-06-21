@@ -2,10 +2,11 @@
 if(session_id() == '' || !isset($_SESSION)) {
     session_start();
 }
-include_once('libs/phpseclib/Net/SFTP.php');
-include_once('libs/phpseclib/Net/SSH2.php');
-include_once('libs/phpseclib/Crypt/RSA.php');
 
+require_once 'vendor/autoload.php';
+use phpseclib\Crypt\RSA; 
+use phpseclib\Net\SSH2; 
+use phpseclib\Net\SFTP; 
 
 
 
@@ -13,18 +14,16 @@ if (isset($_SESSION['id'])) {
 	$ssh_ip = $nodes[$_SESSION['node_id']];
 
 
-	$key = new Crypt_RSA();
+	$key = new RSA();
 	$key->loadKey(file_get_contents('/var/www/.ssh/id_rsa_hlds'));
 	
-	$login_sftp = new Net_SFTP($ssh_ip, 22222);
+	$login_sftp = new SFTP($ssh_ip, 22222);
 	$login_sftp->login('root', $key);
 	
-	$login_ssh2 = new Net_SSH2($ssh_ip, 22222);
+	$login_ssh2 = new SSH2($ssh_ip, 22222);
 	$login_ssh2->login('root', $key);	
-	$login_ssh2->setTimeout(60);	
+	$login_ssh2->setTimeout(60);
 
-	$ssh_connection = ssh2_connect($ssh_ip, 22222, array('hostkey'=>'ssh-rsa'));
-	ssh2_auth_pubkey_file($ssh_connection, 'root', '/var/www/.ssh/id_rsa_hlds.pub', '/var/www/.ssh/id_rsa_hlds');
 }
 
 if (isset($_SESSION['id'])) {
@@ -32,7 +31,7 @@ if (isset($_SESSION['id'])) {
 }
 
 function cfgReload() {
-	global $DB, $ssh_connection, $login_ssh2, $login_sftp, $sftp, $mode_plugins, $anticheat_labels, $zp_modes, $plugins_order;
+	global $DB, $login_ssh2, $login_sftp, $sftp, $mode_plugins, $anticheat_labels, $zp_modes, $plugins_order;
 	
 	$zp_modes = array(9, 23, 25, 27);
 	$server_data = $DB->GetRow('SELECT * FROM `servers` WHERE `id` = ?', array($_SESSION['id']));
