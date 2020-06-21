@@ -1,0 +1,3 @@
+46.35.188.8 - - [21/Jun/2020:15:48:06 +0300] "GET / HTTP/1.1" 200 435 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+46.35.188.8 - - [21/Jun/2020:15:48:06 +0300] "GET /favicon.ico HTTP/1.1" 404 555 "http://cstrikecp.smshosting.bg/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
+46.35.188.8 - - [21/Jun/2020:15:48:07 +0300] "GET / HTTP/1.1" 200 435 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.106 Safari/537.36"
