@@ -226,7 +226,7 @@ server {
 }
 ```
 
-## Current configuration of the main server (some of the mods/plugins needs to be updated)
+## Current configuration of the main server
 
 ```
 * ReHLDS
