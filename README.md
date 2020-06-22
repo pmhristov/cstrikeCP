@@ -180,7 +180,53 @@ groupadd cstrike
 
 * Edit some scripts in /usr/local/cstrike/ for the download URL parameter
 
-Current configuration of the main server (some of the mods/plugins needs to be updated)
+## Example nginx config file
+
+```
+server {
+    listen            80;
+    listen       [::]:80;
+    listen           443 ssl;
+    listen      [::]:443 ssl;
+    server_name  cstrikecp.smshosting.bg;
+
+    ssl_certificate      /etc/nginx/certs/cstrikecp.smshosting.bg.pem;
+    ssl_certificate_key  /etc/nginx/certs/cstrikecp.smshosting.bg.key;
+    ssl_session_timeout 5m;
+    ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers ECDHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA256:ECDHE-RSA-AES256-SHA:ECDHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA;
+    #ssl_session_cache shared:SSL:50m;
+    ssl_dhparam /etc/nginx/certs/dhparam.pem;
+    ssl_prefer_server_ciphers on;
+
+    access_log /var/www/vhosts/cstrikecp.smshosting.bg/logs/access.log;
+    error_log /var/www/vhosts/cstrikecp.smshosting.bg/logs/error.log;
+    root   /var/www/vhosts/cstrikecp.smshosting.bg/www/;
+    index  index.php index.html index.htm;
+
+        location ~ \.php$ {
+                gzip off;
+                fastcgi_split_path_info ^(.+\.php)(/.+)$;
+                fastcgi_pass    unix:/var/run/php-fpm/php-fpm.sock;
+        include                 fastcgi_params;
+        }
+
+    location / {
+        try_files $uri $uri.html $uri/ @extensionless-php;
+        index index.html index.htm index.php;
+    }
+
+    location @extensionless-php {
+        rewrite ^(.*)$ $1.php last;
+    }
+
+    location ~ /\.ht {
+        deny all;
+    }
+}
+```
+
+## Current configuration of the main server (some of the mods/plugins needs to be updated)
 
 ```
 * ReHLDS
